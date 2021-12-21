@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(51, 51, 51);
+}
+
+.games-container {
+  margin-top: 10vh;
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    margin-top: 10rem;
+    i {
+      color: white;
+      animation: rotate 1.5s infinite linear;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  .link {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+@import "./games.scss";
+@import "./nav.scss";
+@import "./detail.scss";
+@import "./fav.scss";

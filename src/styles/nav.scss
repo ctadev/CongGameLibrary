@@ -1,0 +1,212 @@
+nav {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 4rem;
+  background-color: rgba(27, 26, 27, 0.9);
+  position: fixed;
+  flex-wrap: wrap;
+  width: 100vw;
+  top: 0;
+  color: white;
+  left: 0;
+  z-index: 1;
+  .links {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    h1 {
+      position: relative;
+      font-size: 1.2rem;
+      margin: 0 1rem;
+      font-family: "Rock 3D", cursive;
+      color: cyan;
+      span {
+        font-family: "Oswald", sans-serif;
+        color: orangered;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0%;
+        bottom: 0;
+        background-color: darksalmon;
+        height: 1px;
+      }
+      &:hover::after {
+        animation: animate 0.5s linear forwards;
+      }
+    }
+    h2 {
+      font-size: 1rem;
+      position: relative;
+      margin: 0 1rem;
+      padding-top: 0.2rem;
+      color: deeppink;
+      font-family: "Oswald", sans-serif;
+      &:hover {
+        cursor: pointer;
+        color: gold;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0%;
+        bottom: 0;
+        background-color: darksalmon;
+        height: 1px;
+      }
+      &:hover::after {
+        animation: animate 0.5s linear forwards;
+      }
+    }
+    @keyframes animate {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+  }
+  .search-container {
+    input {
+      width: 10rem;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      text-align: center;
+      border: none;
+      outline-color: cyan;
+      background-color: rgb(200, 201, 201);
+      &:hover {
+        outline: cyan 1px solid;
+      }
+    }
+    button {
+      border: none;
+      background-color: rgb(255, 255, 255);
+      width: 1.5rem;
+      margin-bottom: 5px;
+      &:hover {
+        background-image: linear-gradient(
+          to right top,
+          #d16ba5,
+          #c777b9,
+          #ba83ca,
+          #aa8fd8,
+          #9a9ae1,
+          #8aa7ec,
+          #79b3f4,
+          #69bff8,
+          #52cffe,
+          #41dfff,
+          #46eefa,
+          #5ffbf1
+        );
+        cursor: pointer;
+        outline: cyan 1px solid;
+      }
+    }
+  }
+}
+
+@media (min-width: 350px) {
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .links {
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      h1 {
+      }
+      h2 {
+        margin-left: 1.5rem;
+      }
+    }
+    .search-container {
+      input {
+      }
+      button {
+        margin-right: 2.5rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .links {
+      width: auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        font-size: 1.7rem;
+      }
+      h2 {
+        margin-left: 1.5rem;
+      }
+    }
+    .search-container {
+      input {
+        margin-top: 0.7rem;
+      }
+      button {
+      }
+    }
+  }
+}
+
+@media (min-width: 650px) {
+  nav {
+    .links {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+    .search-container {
+      input {
+        height: 1.5rem;
+      }
+      button {
+        height: 1.5rem;
+        width: 2rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  nav {
+    .links {
+      h1 {
+        font-size: 2.5rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+    }
+    .search-container {
+      input {
+        width: 16rem;
+      }
+      button {
+        width: 3rem;
+      }
+    }
+  }
+}

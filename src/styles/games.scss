@@ -1,0 +1,153 @@
+.games-container {
+  .platform {
+    width: 100vw;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    p {
+      margin: 0 2rem;
+      font-size: 2rem;
+      &:hover {
+        cursor: pointer;
+        color: cyan;
+      }
+    }
+  }
+
+  .cards {
+    width: 300px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgb(121, 121, 121);
+    margin: 1.5rem;
+    position: relative;
+    border: cornsilk 1px solid;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+      transition: ease 0.5s;
+      border: rgb(253, 72, 26) 1px solid;
+    }
+    &:hover .view-game {
+      animation: viewgames 0.5s ease forwards;
+    }
+
+    @keyframes viewgames {
+      from {
+        bottom: -50%;
+        opacity: 0;
+      }
+      to {
+        bottom: 50%;
+        opacity: 0.7;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 70%;
+      object-fit: cover;
+    }
+    .view-game {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      background: rgb(122, 121, 122);
+      background: radial-gradient(
+        circle,
+        rgb(37, 35, 36) 37%,
+        rgb(73, 83, 95) 87%
+      );
+      width: 100%;
+      height: 30%;
+      bottom: -50%;
+      position: absolute;
+      p {
+        color: rgb(255, 255, 255);
+        font-size: 2rem;
+        font-family: "Roboto Mono", monospace;
+        font-weight: bolder;
+      }
+    }
+
+    .card-info {
+      min-height: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      .h2 {
+        text-align: center;
+        font-size: 1.5rem;
+        color: white;
+        font-family: "Libre Baskerville", serif;
+      }
+      h2.overflowh2 {
+        font-size: 1rem;
+      }
+      .outer-star {
+        display: inline-block;
+        position: relative;
+        .inner-star {
+          position: absolute;
+          color: #f8ce0b;
+          top: 0;
+          left: 0;
+          width: 0;
+          white-space: nowrap;
+          overflow: hidden;
+          width: 0;
+        }
+      }
+      h3 {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .games-container {
+    .platform {
+      margin: 0;
+      p {
+        margin: 0 0.6rem;
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .games-container {
+    .platform {
+      margin: 0;
+      p {
+        margin: 0 0.3rem;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  @media (max-width: 280px) {
+    .games-container {
+      .platform {
+        margin: 0;
+        p {
+          margin: 0 0.3rem;
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
