@@ -7,7 +7,7 @@ const store = configureStore({
   reducer: {
     detail: details,
     search: searchs,
-    toggle: favSlice,
+    fav: favSlice,
   },
 });
 

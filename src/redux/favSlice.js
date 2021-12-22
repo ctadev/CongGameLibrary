@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const favSlice = createSlice({
   name: "details",
-  initialState: false,
+  initialState: [],
   reducers: {
     setFav: (state, action) => {
-      return (state = action.payload);
+      return [...state, {...action.payload}]
     },
   },
 });

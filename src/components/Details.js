@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ios from "../styles/img/apple-brands.svg";
 import play from "../styles/img/playstation-brands.svg";
 import pc from "../styles/img/windows-brands.svg";
@@ -9,6 +9,7 @@ import pad from "../styles/img/gamepad-solid.svg";
 import android from "../styles/img/android-brands.svg";
 import linux from "../styles/img/linux-brands.svg";
 import mac from "../styles/img/laptop-solid.svg";
+import { setFav } from "../redux/favSlice";
 
 function Details() {
   const [gameDetails, setgameDetails] = useState();
@@ -43,6 +44,23 @@ function Details() {
     },
   };
 
+  const favData = useSelector((state) => state.fav);
+  const dispatch = useDispatch();
+
+  const addFav = () => {
+    if (favData.lenght < 0) {
+      dispatch(setFav(gameDetails));
+    } else {
+      favData.map((data) => {
+        if (data.id === gameDetails.id) {
+          console.log("game already added");
+        } else {
+          dispatch(setFav(gameDetails));
+        }
+      });
+    }
+  };
+
   useEffect(() => {
     async function fetchData() {
       await axios.get(url).then((resp) => setgameDetails(resp.data));
@@ -55,6 +73,7 @@ function Details() {
       {gameDetails ? (
         <section className="detail-container">
           <main className="content-container">
+            <div></div>
             <div className="game-info">
               <h1>{gameDetails.name}</h1>
               <p>
@@ -87,7 +106,7 @@ function Details() {
             </div>
             <div className="game-pic1">
               <img src={gameDetails.background_image} alt={gameDetails.name} />
-              <button>Add to Favourites</button>
+              <button onClick={() => addFav()}>Add to Favourites</button>
             </div>
             <div className="desc">
               <p>{gameDetails.description_raw}</p>
