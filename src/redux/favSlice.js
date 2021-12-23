@@ -3,7 +3,7 @@ const localData = localStorage.getItem("favourites");
 
 const favSlice = createSlice({
   name: "details",
-  initialState: JSON.parse(localData),
+  initialState: localData ? JSON.parse(localData) : [],
   reducers: {
     setFav: (state, action) => {
       return [...state, { ...action.payload }];
