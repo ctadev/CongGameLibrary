@@ -55,24 +55,22 @@ function Details() {
     },
   };
 
-  const favData = useSelector((state) => state.fav);
   const dispatch = useDispatch();
   const [toggle, setToggle] = useState(true);
+  const favState = useSelector((state) => state.fav);
+
+  useEffect(() => {
+    localStorage.setItem("favourites", JSON.stringify(favState));
+  }, [favState]);
 
   const addFav = () => {
-    if (favData == null) {
+    if (favState.some((match) => match.id === gameDetails.id)) {
+      setToggle(false);
+      added();
+    } else {
       setToggle(false);
       dispatch(setFav(gameDetails));
       add();
-    } else {
-      if (favData.some((match) => match.id === gameDetails.id)) {
-        setToggle(false);
-        added();
-      } else {
-        setToggle(false);
-        dispatch(setFav(gameDetails));
-        add();
-      }
     }
   };
 
