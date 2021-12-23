@@ -85,7 +85,7 @@ function Details() {
             <div></div>
             <div className="game-info">
               <h1>{gameDetails.name}</h1>
-              <p>
+              <div className="rating">
                 Ratings:
                 <div className="outer-star">
                   <i className="far fa-star"></i>
@@ -104,7 +104,7 @@ function Details() {
                     <i className="fas fa-star"></i>
                   </div>
                 </div>
-              </p>
+              </div>
               <p>Released Date: {gameDetails.released}</p>
               <h2>
                 Official Website:{" "}
