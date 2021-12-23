@@ -6,12 +6,15 @@ import Details from "./components/Details";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Favourites from "./components/Favourites";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <Provider store={store}>
       <div className="component-body">
         <Router>
+          <ToastContainer />
           <Nav />
           <Routes>
             <Route path="/" element={<Games />} />

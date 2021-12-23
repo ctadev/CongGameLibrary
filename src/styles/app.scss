@@ -9,7 +9,7 @@ body {
 }
 
 .games-container {
-  margin-top: 10vh;
+  margin-top: 6rem;
   h1 {
     display: flex;
     justify-content: center;
@@ -46,4 +46,5 @@ body {
 @import "./games.scss";
 @import "./nav.scss";
 @import "./detail.scss";
+@import "./fav.scss";
 @import "./fav.scss";

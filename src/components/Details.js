@@ -10,8 +10,19 @@ import android from "../styles/img/android-brands.svg";
 import linux from "../styles/img/linux-brands.svg";
 import mac from "../styles/img/laptop-solid.svg";
 import { setFav } from "../redux/favSlice";
+import { toast } from "react-toastify";
 
 function Details() {
+  const added = () =>
+    toast("Already been Added to Favourites", {
+      position: "top-center",
+      autoClose: 1500,
+    });
+  const add = () =>
+    toast("Games has been added to Favourites", {
+      position: "top-center",
+      autoClose: 2500,
+    });
   const [gameDetails, setgameDetails] = useState();
   const data = useSelector((state) => state.detail);
   const url = `https://api.rawg.io/api/games/${data}?key=${process.env.REACT_APP_GAME_API}`;
@@ -46,18 +57,16 @@ function Details() {
 
   const favData = useSelector((state) => state.fav);
   const dispatch = useDispatch();
+  const [toggle, setToggle] = useState(true);
 
   const addFav = () => {
-    if (favData.lenght < 0) {
-      dispatch(setFav(gameDetails));
+    if (favData.some((match) => match.id === gameDetails.id)) {
+      setToggle(false);
+      added();
     } else {
-      favData.map((data) => {
-        if (data.id === gameDetails.id) {
-          console.log("game already added");
-        } else {
-          dispatch(setFav(gameDetails));
-        }
-      });
+      setToggle(false);
+      dispatch(setFav(gameDetails));
+      add();
     }
   };
 
@@ -106,7 +115,12 @@ function Details() {
             </div>
             <div className="game-pic1">
               <img src={gameDetails.background_image} alt={gameDetails.name} />
-              <button onClick={() => addFav()}>Add to Favourites</button>
+              <button
+                className={toggle ? "addFavs" : "addFavs hide"}
+                onClick={() => addFav()}
+              >
+                Add to Favourites
+              </button>
             </div>
             <div className="desc">
               <p>{gameDetails.description_raw}</p>

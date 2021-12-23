@@ -1,3 +1,115 @@
 .fav-container {
-  margin-top: 4rem;
+  margin-top: 6rem;
+  .platform {
+    width: 100vw;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    h5 {
+      font-size: 3rem;
+      font-family: "Oooh Baby", cursive;
+    }
+  }
+
+  .cards {
+    width: 300px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgb(121, 121, 121);
+    margin: 1.5rem;
+    position: relative;
+    border: cornsilk 1px solid;
+    &:hover {
+      transform: scale(1.2);
+      transition: ease 0.5s;
+      border: rgb(253, 72, 26) 1px solid;
+    }
+    &:hover .view-game {
+      animation: viewgames 0.5s ease forwards;
+      cursor: pointer;
+    }
+
+    @keyframes viewgames {
+      from {
+        bottom: -50%;
+        opacity: 0;
+      }
+      to {
+        bottom: 50%;
+        opacity: 0.7;
+      }
+    }
+
+    .img-container {
+      width: 100%;
+      height: 70%;
+      .linkfav {
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .view-game {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      opacity: 0;
+      background: rgb(122, 121, 122);
+      background: radial-gradient(
+        circle,
+        rgb(37, 35, 36) 37%,
+        rgb(73, 83, 95) 87%
+      );
+      width: 100%;
+      height: 30%;
+      bottom: 30%;
+      left: 0;
+      position: absolute;
+      p {
+        color: rgb(255, 255, 255);
+        font-size: 2rem;
+        font-family: "Roboto Mono", monospace;
+        font-weight: bolder;
+      }
+    }
+
+    .card-info {
+      min-height: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      .h2 {
+        text-align: center;
+        font-size: 1.5rem;
+        color: white;
+        font-family: "Libre Baskerville", serif;
+      }
+      h2.overflowh2 {
+        font-size: 1rem;
+      }
+      .delete {
+        margin-top: 0.5rem;
+        p {
+          color: white;
+          font-size: 2rem;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }
