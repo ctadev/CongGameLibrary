@@ -7,15 +7,13 @@ import { deleteFav } from "../redux/favSlice";
 function Favourites() {
   const favData = useSelector((state) => state.fav);
   const dispatch = useDispatch();
-  const [data,setData] = useState()
+  const [data, setData] = useState();
 
   useEffect(() => {
     localStorage.setItem("favourites", JSON.stringify(favData));
-    const localData = localStorage.getItem("favourites");
-    setData(JSON.parse(localData));
+    const localData = JSON.parse(localStorage.getItem("favourites") || "[]");
+    setData(localData);
   }, [favData]);
-
-  
 
   return (
     <div className="fav-container">
