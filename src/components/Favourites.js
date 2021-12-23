@@ -73,7 +73,7 @@ function Favourites() {
           ))}
         </div>
       ) : (
-        <h1>
+        <h1 className="fav-spinner">
           <i className="fas fa-spinner"></i>
         </h1>
       )}

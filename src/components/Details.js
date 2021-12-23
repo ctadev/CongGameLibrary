@@ -86,7 +86,7 @@ function Details() {
             <div className="game-info">
               <h1>{gameDetails.name}</h1>
               <div className="rating">
-                Ratings:
+                <p>Ratings:</p>
                 <div className="outer-star">
                   <i className="far fa-star"></i>
                   <i className="far fa-star"></i>

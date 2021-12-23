@@ -112,4 +112,20 @@
       }
     }
   }
+  .fav-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    font-size: 5rem;
+    animation: animateSpinner 1.5s infinite linear;
+  }
+  @keyframes animateSpinner {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 }
