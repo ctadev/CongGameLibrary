@@ -29,7 +29,6 @@ function Nav() {
     setInput("");
   };
 
-  console.log(input);
   return (
     <nav>
       <div className="links">
