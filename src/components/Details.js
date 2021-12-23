@@ -60,13 +60,19 @@ function Details() {
   const [toggle, setToggle] = useState(true);
 
   const addFav = () => {
-    if (favData.some((match) => match.id === gameDetails.id)) {
-      setToggle(false);
-      added();
-    } else {
+    if (favData == null) {
       setToggle(false);
       dispatch(setFav(gameDetails));
       add();
+    } else {
+      if (favData.some((match) => match.id === gameDetails.id)) {
+        setToggle(false);
+        added();
+      } else {
+        setToggle(false);
+        dispatch(setFav(gameDetails));
+        add();
+      }
     }
   };
 
