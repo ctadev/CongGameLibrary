@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const favSlice = createSlice({
   name: "details",
-  initialState: JSON.parse(localStorage.getItem("favourites") || []),
+  initialState: [],
   reducers: {
     setFav: (state, action) => {
       return [...state, { ...action.payload }];
